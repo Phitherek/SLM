@@ -1,6 +1,10 @@
 Phitherek_' s SLM - Simple Login Method
 A login system in PHP - for now only in Polish version.
 
-UNDER CONSTRUCTION - for testers only!
+TODO:
+- include file with functions for managing custom variables in user files.
+- describe all the include files and functions in this README
+
+All right, so now the main SLM is done and ready to use. Enjoy!
 
 example: Branch created to show examples of using includes and functions of SLM. Contains additional scripts which are fully functional login system.
