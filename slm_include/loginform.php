@@ -108,7 +108,6 @@ if($_POST['login'] == 1) {
 	} else {
 	$error = 1;	
 	}
-	}
 } else {
 $error = 3;	
 }
