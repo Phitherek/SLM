@@ -1,9 +1,24 @@
 <?php
-function slm_loginpage_main($register=1,$registerpage="register.php",$redirect="index.php")
+function slm_loginpage_main($banmode=1,$register=1,$registerpage="register.php",$redirect="index.php")
 {
 session_start();
-
+if($_SESSION['slm_loggedin'] == 0) {
 if($_POST['login'] == 1) {
+	if(file_exists("slm_bans/".$_POST['username'].".php") {
+		include("slm_bans/".$_POST['username'].".php");
+		?>
+		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
+		<?php
+		if($reason == "no") {
+		?>
+		Administrator nie podał powodu.</p>
+		<?php
+		} else {
+		?>
+		Ban z powodu: <?php echo $reason; ?></p>
+		<?php
+		}
+		} else {
 	if(file_exists("slm_users/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
 		if($pass == $_POST['password']) {
@@ -16,6 +31,7 @@ if($_POST['login'] == 1) {
 		}
 	} else {
 	$error = 1;	
+	}
 	}
 } else {
 $error = 3;	
@@ -49,11 +65,35 @@ Hasło: <input type="password" name="password" /><br />
 </form>
 <?php
 }
+} else {
+?>
+<p class="slm_success">Jesteś już zalogowany jako: <?php echo $_POST['username']; ?>!</p><br />
+<script type="text/javascript">
+window.location.href = "<?php echo $redirect; ?>";
+</script>
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a>
+<?php	
 }
-function slm_loginpage_sub($register=1,$registerpage="register.php")
+}
+function slm_loginpage_sub($banmode=1,$register=1,$registerpage="register.php")
 {
 session_start();
 if($_SESSION['slm_loggedin'] == 0) {
+if(file_exists("slm_bans/".$_POST['username'].".php") {
+		include("slm_bans/".$_POST['username'].".php");
+		?>
+		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
+		<?php
+		if($reason == "no") {
+		?>
+		Administrator nie podał powodu.</p>
+		<?php
+		} else {
+		?>
+		Ban z powodu: <?php echo $reason; ?></p>
+		<?php
+		}
+		} else {
 if($_POST['login'] == 1) {
 	if(file_exists("slm_users/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
@@ -67,6 +107,7 @@ if($_POST['login'] == 1) {
 		}
 	} else {
 	$error = 1;	
+	}
 	}
 } else {
 $error = 3;	
