@@ -14,9 +14,6 @@ if($showlink == 1) {
 <br />
 <?php
 }
-?>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p>
-<?php
 } else if($showunlogged == 1) {
 ?>
 <p class="slm_text">Nie jesteś zalogowany/a za pomocą systemu SLM<br />
@@ -30,8 +27,6 @@ if($showlink == 1) {
 <br />
 <?php
 }
-?>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p><?php
 }
 }
 ?>

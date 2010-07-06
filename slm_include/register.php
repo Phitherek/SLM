@@ -58,8 +58,5 @@ Nazwa użytkownika: <input type="text" name="username" /><br />
 </form>
 <?php
 }
-?>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p><br />
-<?php
 }
 ?>

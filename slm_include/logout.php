@@ -11,7 +11,6 @@ function slm_logout($redirect="index.php") {
 <script type="text/javascript">
 window.location.href = "<?php echo $redirect; ?>";
 </script>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p><br />
 <?php
 	}
 }

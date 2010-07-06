@@ -49,9 +49,6 @@ Hasło: <input type="password" name="password" /><br />
 </form>
 <?php
 }
-?>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p>
-<?php
 }
 function slm_loginpage_sub($register=1,$registerpage="register.php")
 {
@@ -100,9 +97,6 @@ Hasło: <input type="password" name="password" /><br />
 </form>
 <?php
 }
-?>
-<p class="slm_footer">Powered by SLM | &copy; 2010 by Phitherek_</p>
-<?php
 }
 }
 ?>
