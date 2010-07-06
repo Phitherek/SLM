@@ -2,3 +2,5 @@ Phitherek_' s SLM - Simple Login Method
 A login system in PHP - for now only in Polish version.
 
 UNDER CONSTRUCTION - for testers only!
+
+example: Branch created to show examples of using includes and functions of SLM. Contains additional scripts which are fully functional login system.
