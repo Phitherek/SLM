@@ -12,6 +12,14 @@ function slm_logout($redirect="index.php") {
 window.location.href = "<?php echo $redirect; ?>";
 </script>
 <?php
-	}
+	} else {
+	?>
+<p class="slm_success">Nie jesteś zalogowany!</p><br /><br />
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a><br /><br />
+<script type="text/javascript">
+window.location.href = "<?php echo $redirect; ?>";
+</script>
+<?php	
+}
 }
 ?>
