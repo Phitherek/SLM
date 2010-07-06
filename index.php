@@ -10,6 +10,10 @@ include("slm_include/userinfo.php");
 include("slm_include/footer.php");
 
 slm_userinfo();
+?>
+<a href="passwd.php" alt="passwd">Zmiana hasła SLM</a><br />
+<a href="adminonly.php" alt="adminonly">Test AdminOnly</a><br />
+<?php
 slm_footer("slm_admin.php","Administracja SLM");
 ?>
 </body>
