@@ -4,7 +4,7 @@ function slm_loginpage_main($banmode=1,$register=1,$registerpage="register.php",
 session_start();
 if($_SESSION['slm_loggedin'] == 0) {
 if($_POST['login'] == 1) {
-	if(file_exists("slm_bans/".$_POST['username'].".php") {
+	if(file_exists("slm_bans/".$_POST['username'].".php")) {
 		include("slm_bans/".$_POST['username'].".php");
 		?>
 		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
