@@ -4,7 +4,9 @@ function slm_loginpage_main($banmode=1,$register=1,$registerpage="register.php",
 session_start();
 if($_SESSION['slm_loggedin'] == 0) {
 if($_POST['login'] == 1) {
-	if(file_exists("slm_bans/".$_POST['username'].".php")) {
+	$error=4;
+if(file_exists("slm_bans/".$_POST['username'].".php")) {
+	if($banmode == 1) {
 		include("slm_bans/".$_POST['username'].".php");
 		?>
 		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
@@ -18,7 +20,9 @@ if($_POST['login'] == 1) {
 		Ban z powodu: <?php echo $reason; ?></p>
 		<?php
 		}
-		} else {
+		$error=3;
+	}	
+	} else if($banmode == 0 OR $error == 4) {
 	if(file_exists("slm_users/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
 		if($pass == $_POST['password']) {
@@ -43,7 +47,7 @@ if($error == 0) {
 window.location.href = "<?php echo $redirect; ?>";
 </script>
 <a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a>
-<?php	
+<?php
 } else {
 	if($error == 1) {
 	?>
@@ -79,7 +83,10 @@ function slm_loginpage_sub($banmode=1,$register=1,$registerpage="register.php")
 {
 session_start();
 if($_SESSION['slm_loggedin'] == 0) {
+	if($_POST['login'] == 1) {
+	$error=4;
 if(file_exists("slm_bans/".$_POST['username'].".php")) {
+	if($banmode == 1) {
 		include("slm_bans/".$_POST['username'].".php");
 		?>
 		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
@@ -93,8 +100,9 @@ if(file_exists("slm_bans/".$_POST['username'].".php")) {
 		Ban z powodu: <?php echo $reason; ?></p>
 		<?php
 		}
-		} else {
-if($_POST['login'] == 1) {
+		$error=3;
+	}
+		} else if($banmode == 0 OR $error == 4)  {
 	if(file_exists("slm_users/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
 		if($pass == $_POST['password']) {
@@ -108,6 +116,7 @@ if($_POST['login'] == 1) {
 	} else {
 	$error = 1;	
 	}
+		}
 } else {
 $error = 3;	
 }
@@ -136,7 +145,6 @@ Hasło: <input type="password" name="password" /><br />
 <input type="submit" value="Zaloguj" /><br /><br />
 </form>
 <?php
-}
 }
 }
 }
