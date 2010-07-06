@@ -10,6 +10,7 @@ if($_POST['login'] == 1) {
 		$error = 0;
 		$_SESSION['slm_loggedin'] = 1;
 		$_SESSION['slm_username'] = $_POST['username'];
+		$_SESSION['slm_type'] = $type;
 		} else {
 		$error = 2;	
 		}
@@ -63,6 +64,7 @@ if($_POST['login'] == 1) {
 		$error = 0;
 		$_SESSION['slm_loggedin'] = 1;
 		$_SESSION['slm_username'] = $_POST['username'];
+		$_SESSION['slm_type'] = $type;
 		} else {
 		$error = 2;	
 		}
