@@ -3,7 +3,9 @@ A login system in PHP - for now only in Polish version.
 
 TODO:
 - include file with functions for managing custom variables in user files.
-- describe all the include files and functions in this README
+- describe all the include files and functions in Wiki.
+- in slm_admin.php - warning (as in master' s README).
+- examples for the first point of TODO.
 
 All right, so now the main SLM is done and ready to use. Enjoy!
 
