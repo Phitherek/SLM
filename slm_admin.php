@@ -11,6 +11,11 @@ include("slm_include/adminonly.php");
 include("slm_include/footer.php");
 slm_loginpage_sub();
 slm_adminonly("index.php", "slm_admin.php", "Strona główna panelu administracyjnego SLM");
+if(file_exists("slm_install.php")) {
+?>
+<p class="slm_error">Poważne zagrożenie bezpieczeństwa - nie usunąłeś slm_install.php!</p><br /><br />
+<?php
+}
 if($_POST['auth'] == 1) {
 	include("slm_users/".$_SESSION['slm_username'].".php");
 	if($_POST['authpass'] == $pass) {
