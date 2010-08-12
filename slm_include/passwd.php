@@ -1,5 +1,10 @@
 <?php
 function slm_passwd() {
+	session_start();
+	if (!isset($_SESSION['started'])) {
+	session_regenerate_id();
+	$_SESSION['started'] = true;
+}
 	if($_SESSION['slm_loggedin'] == 1) {
 		if($_POST['change'] == 1) {
 		$error=0;

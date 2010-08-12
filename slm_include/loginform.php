@@ -2,6 +2,10 @@
 function slm_loginpage_main($banmode=1,$register=1,$registerpage="register.php",$redirect="index.php")
 {
 session_start();
+if (!isset($_SESSION['started'])) {
+	session_regenerate_id();
+	$_SESSION['started'] = true;
+}
 if($_SESSION['slm_loggedin'] == 0) {
 if($_POST['login'] == 1) {
 	$error=4;
@@ -27,6 +31,7 @@ if(file_exists("slm_bans/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
 		if($pass == $_POST['password']) {
 		$error = 0;
+		session_regenerate_id;
 		$_SESSION['slm_loggedin'] = 1;
 		$_SESSION['slm_username'] = $_POST['username'];
 		$_SESSION['slm_type'] = $type;
@@ -82,6 +87,10 @@ window.location.href = "<?php echo $redirect; ?>";
 function slm_loginpage_sub($banmode=1,$register=1,$registerpage="register.php")
 {
 session_start();
+if (!isset($_SESSION['started'])) {
+	session_regenerate_id();
+	$_SESSION['started'] = true;
+}
 if($_SESSION['slm_loggedin'] == 0) {
 	if($_POST['login'] == 1) {
 	$error=4;
@@ -107,6 +116,7 @@ if(file_exists("slm_bans/".$_POST['username'].".php")) {
 		include("slm_users/".$_POST['username'].".php");
 		if($pass == $_POST['password']) {
 		$error = 0;
+		session_regenerate_id();
 		$_SESSION['slm_loggedin'] = 1;
 		$_SESSION['slm_username'] = $_POST['username'];
 		$_SESSION['slm_type'] = $type;
