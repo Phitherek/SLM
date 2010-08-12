@@ -1,6 +1,10 @@
 <?php
 function slm_logout($redirect="index.php") {
 	session_start();
+	if (!isset($_SESSION['started'])) {
+	session_regenerate_id();
+	$_SESSION['started'] = true;
+}
 	if($_SESSION['slm_loggedin'] == 1) {
 	$_SESSION['slm_loggedin'] = 0;
 	$_SESSION['slm_username'] = NULL;

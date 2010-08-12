@@ -1,6 +1,10 @@
 <?php
 function slm_userinfo($showlink=1,$showunlogged=1,$loginpage="login.php",$logoutpage="logout.php") {
 session_start();
+if (!isset($_SESSION['started'])) {
+	session_regenerate_id();
+	$_SESSION['started'] = true;
+}
 if($_SESSION['slm_loggedin'] == 1) {
 ?>
 <p class="slm_text">Jesteś zalogowany/a za pomocą systemu SLM jako: <?php echo $_SESSION['slm_username']; ?>!<br />
