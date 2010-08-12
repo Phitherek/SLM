@@ -3,9 +3,8 @@ A login system in PHP - for now only in Polish version.
 
 TODO:
 - include file with functions for managing custom variables in user files (unfortunately my method for this doesn' t work. I leave it in TODO. If you have an idea how to do it, please fork this repo and write it.).
-- CSS classes in wiki.
-- examples for the first point of TODO (if you will write it).
+- examples for the above point (if you will write it).
 
-All right, so now the main SLM is done and ready to use. Enjoy!
+The SLM is ready to use! Enjoy!
 
 example: Branch created to show examples of using includes and functions of SLM. Contains additional scripts which create fully functional login system.
