@@ -13,6 +13,7 @@ slm_userinfo();
 ?>
 <a href="passwd.php" alt="passwd">Zmiana hasła SLM</a><br />
 <a href="adminonly.php" alt="adminonly">Test AdminOnly</a><br />
+<a href="profile.php" alt="profile">Profile - test dodatkowych informacji w plikach użytkownika i przykład wykorzystania funkcji</a><br />
 <?php
 slm_footer("slm_admin.php","Administracja SLM");
 ?>
