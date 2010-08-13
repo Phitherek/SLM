@@ -57,6 +57,7 @@ global $f;
 	fputs($f, '?>'."\n");
 	flock($f, LOCK_UN);
 	fclose($f);
+	$_SESSION['slm_userfile_winit'] = 0;
 	return 0;	
 	} else {
 	return 1;	
