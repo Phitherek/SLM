@@ -9,6 +9,7 @@ function slm_logout($redirect="index.php") {
 	$_SESSION['slm_loggedin'] = 0;
 	$_SESSION['slm_username'] = NULL;
 	$_SESSION['slm_type'] = NULL;
+	$_SESSION['slm_userfile_type'] = NULL;
 ?>
 <p class="slm_success">Wylogowano z systemu SLM!</p><br /><br />
 <a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a><br /><br />
