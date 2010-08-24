@@ -155,6 +155,7 @@ Hasło: <input type="password" name="password" /><br />
 <input type="submit" value="Zaloguj" /><br /><br />
 </form>
 <?php
+die();
 }
 }
 }
