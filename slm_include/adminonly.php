@@ -7,7 +7,7 @@ function slm_adminonly($link="index.php",$footerlinkpage="index.php", $footerlin
 }
 	if($_SESSION['slm_type'] != "admin") {
 		?>
-		<p class="slm_error">Ta strona dostępna jest tylko dla użytkownika SLM ze statusem administratora! Jeżeli powinieneś mieć do niej dostęp, skontaktuj się z administratorem.<br /><br /><a class="slm_link" href="<?php echo $link; ?>" alt="link">Przejdź do strony głównej</a></p><br /><br />
+		<p class="slm_error">This page is available only for user with administrative privileges. If you should have access to this page, contact with the administrator.<br /><br /><a class="slm_link" href="<?php echo $link; ?>" alt="link">Go to main page</a></p><br /><br />
 		<?php
 		?>
 <hr />
