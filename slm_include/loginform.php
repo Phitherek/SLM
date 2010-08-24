@@ -65,7 +65,7 @@ window.location.href = "<?php echo $redirect; ?>";
 	}
 ?>
 <h1 class="slm_header">Login to SLM system</h1><br /><br />
-<p class="slm_text">After login you will gain access to additional functions of the page. <?php if($register == 1) { ?>If you don' t have any account yet, <a href="<?php echo $registerpage; ?>" alt="Register">register</a>.<?php } ?></p><br /><br />
+<p class="slm_text">After login you will gain access to additional functions of the page. <?php if($register == 1) { ?>If you don' t have an account yet, <a href="<?php echo $registerpage; ?>" alt="Register">register</a>.<?php } ?></p><br /><br />
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 Username: <input type="text" name="username" /><br />
 Password: <input type="password" name="password" /><br />

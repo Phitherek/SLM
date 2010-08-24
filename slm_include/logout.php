@@ -11,16 +11,16 @@ function slm_logout($redirect="index.php") {
 	$_SESSION['slm_type'] = NULL;
 	$_SESSION['slm_userfile_type'] = NULL;
 ?>
-<p class="slm_success">Wylogowano z systemu SLM!</p><br /><br />
-<a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a><br /><br />
+<p class="slm_success">Logged out from SLM system!</p><br /><br />
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Click here if automatic redirection fails</a><br /><br />
 <script type="text/javascript">
 window.location.href = "<?php echo $redirect; ?>";
 </script>
 <?php
 	} else {
 	?>
-<p class="slm_success">Nie jesteś zalogowany!</p><br /><br />
-<a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a><br /><br />
+<p class="slm_success">You are not logged in!</p><br /><br />
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="redirect">Click here if automatic redirection fails</a><br /><br />
 <script type="text/javascript">
 window.location.href = "<?php echo $redirect; ?>";
 </script>
