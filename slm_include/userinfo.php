@@ -7,11 +7,11 @@ if (!isset($_SESSION['started'])) {
 }
 if($_SESSION['slm_loggedin'] == 1) {
 ?>
-<p class="slm_text">Jesteś zalogowany/a za pomocą systemu SLM jako: <?php echo $_SESSION['slm_username']; ?>!<br />
+<p class="slm_text">You are logged in with the SLM system as: <?php echo $_SESSION['slm_username']; ?>!<br />
 <?php
 if($showlink == 1) {
 ?>
-<a class="slm_link" href="<?php echo $logoutpage; ?>" alt="Logout">Kliknij tutaj, aby się wylogować</a></p><br /><br />
+<a class="slm_link" href="<?php echo $logoutpage; ?>" alt="Logout">Click here to logout</a></p><br /><br />
 <?php
 } else {
 ?>
@@ -20,11 +20,11 @@ if($showlink == 1) {
 }
 } else if($showunlogged == 1) {
 ?>
-<p class="slm_text">Nie jesteś zalogowany/a za pomocą systemu SLM<br />
+<p class="slm_text">You are not logged in with the SLM system.<br />
 <?php
 if($showlink == 1) {
 ?>
-<a class="slm_link" href="<?php echo $loginpage; ?>" alt="Logout">Kliknij tutaj, aby się zalogować</a></p><br /><br />
+<a class="slm_link" href="<?php echo $loginpage; ?>" alt="Login">Click here to login</a></p><br /><br />
 <?php
 } else {
 ?>
