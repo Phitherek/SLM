@@ -13,15 +13,15 @@ if(file_exists("slm_bans/".$_POST['username'].".php")) {
 	if($banmode == 1) {
 		include("slm_bans/".$_POST['username'].".php");
 		?>
-		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
+		<p class="slm_baninfo">Your SLM account is banned!<br />
 		<?php
 		if($reason == "no") {
 		?>
-		Administrator nie podał powodu.</p>
+		Administrator didn' t give any reason.</p>
 		<?php
 		} else {
 		?>
-		Ban z powodu: <?php echo $reason; ?></p>
+		Reason of the ban: <?php echo $reason; ?></p>
 		<?php
 		}
 		$error=3;
@@ -47,40 +47,40 @@ $error = 3;
 }
 if($error == 0) {
 ?>
-<p class="slm_success">Poprawnie zalogowano jako: <?php echo $_POST['username']; ?>!</p><br />
+<p class="slm_success">Correctly logged in as: <?php echo $_POST['username']; ?>!</p><br />
 <script type="text/javascript">
 window.location.href = "<?php echo $redirect; ?>";
 </script>
-<a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a>
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Click here if automatic redirection fails</a>
 <?php
 } else {
 	if($error == 1) {
 	?>
-	<p class="slm_error">Błąd SLM: Podany użytkownik nie istnieje!</p><br />
+	<p class="slm_error">SLM Error: User doesn' t exist!</p><br />
 	<?php	
 	} else if($error == 2) {
 	?>
-	<p class="slm_error">Błąd SLM: Złe hasło!</p><br />
+	<p class="slm_error">SLM Error: Bad password!</p><br />
 	<?php	
 	}
 ?>
-<h1 class="slm_header">Logowanie do systemu SLM</h1><br /><br />
-<p class="slm_text">Po zalogowaniu uzyskasz dostęp do dodatkowych funkcji strony. <?php if($register == 1) { ?>Jeżeli nie masz jeszcze konta, <a href="<?php echo $registerpage; ?>" alt="Register">zarejestruj się</a>.<?php } ?></p><br /><br />
+<h1 class="slm_header">Login to SLM system</h1><br /><br />
+<p class="slm_text">After login you will gain access to additional functions of the page. <?php if($register == 1) { ?>If you don' t have any account yet, <a href="<?php echo $registerpage; ?>" alt="Register">register</a>.<?php } ?></p><br /><br />
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-Nazwa użytkownika: <input type="text" name="username" /><br />
-Hasło: <input type="password" name="password" /><br />
+Username: <input type="text" name="username" /><br />
+Password: <input type="password" name="password" /><br />
 <input type="hidden" name="login" value="1" />
-<input type="submit" value="Zaloguj" /><br /><br />
+<input type="submit" value="Login" /><br /><br />
 </form>
 <?php
 }
 } else {
 ?>
-<p class="slm_success">Jesteś już zalogowany jako: <?php echo $_POST['username']; ?>!</p><br />
+<p class="slm_success">You are logged in as <?php echo $_POST['username']; ?>yet!</p><br />
 <script type="text/javascript">
 window.location.href = "<?php echo $redirect; ?>";
 </script>
-<a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a>
+<a class="slm_link" href="<?php echo $redirect; ?>" alt="Index">Click here, if automatic redirection fails</a>
 <?php	
 }
 }
@@ -98,15 +98,15 @@ if(file_exists("slm_bans/".$_POST['username'].".php")) {
 	if($banmode == 1) {
 		include("slm_bans/".$_POST['username'].".php");
 		?>
-		<p class="slm_baninfo">Twoje konto SLM zostało zbanowane!<br />
+		<p class="slm_baninfo">Your SLM account is banned!<br />
 		<?php
 		if($reason == "no") {
 		?>
-		Administrator nie podał powodu.</p>
+		Administrator didn' t give any reason.</p>
 		<?php
 		} else {
 		?>
-		Ban z powodu: <?php echo $reason; ?></p>
+		Reason of the ban: <?php echo $reason; ?></p>
 		<?php
 		}
 		$error=3;
@@ -132,29 +132,30 @@ $error = 3;
 }
 if($error == 0) {
 ?>
-<p class="slm_success">Poprawnie zalogowano jako: <?php echo $_POST['username']; ?>!</p>
+<p class="slm_success">Correctly logged in as: <?php echo $_POST['username']; ?>!</p>
 <?php
 return(0);	
 } else {
 	if($error == 1) {
 	?>
-	<p class="slm_error">Błąd SLM: Podany użytkownik nie istnieje!</p><br />
+	<p class="slm_error">SLM Error: Given user doesn' t exist!</p><br />
 	<?php	
 	} else if($error == 2) {
 	?>
-	<p class="slm_error">Błąd SLM: Złe hasło!</p><br />
+	<p class="slm_error">SLM Error: Bad password!</p><br />
 	<?php	
 	}
 ?>
-<h1 class="slm_header">Logowanie do systemu SLM</h1><br /><br />
-<p class="slm_text">Aby uzyskać dostęp do tej strony, musisz być zalogowany za pomocą systemu SLM. <?php if($register == 1) { ?>Jeżeli nie masz jeszcze konta, <a href="<?php echo $registerpage; ?>" alt="Register">zarejestruj się</a>.<?php } ?></p><br /><br />
+<h1 class="slm_header">Login to SLM system</h1><br /><br />
+<p class="slm_text">To gain access to this page, you must be logged in by the SLM system. <?php if($register == 1) { ?>If you doesn' t have an account yet, <a href="<?php echo $registerpage; ?>" alt="Register">register</a>.<?php } ?></p><br /><br />
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-Nazwa użytkownika: <input type="text" name="username" /><br />
-Hasło: <input type="password" name="password" /><br />
+Username: <input type="text" name="username" /><br />
+Password: <input type="password" name="password" /><br />
 <input type="hidden" name="login" value="1" />
-<input type="submit" value="Zaloguj" /><br /><br />
+<input type="submit" value="Login" /><br /><br />
 </form>
 <?php
+die();
 }
 }
 }
