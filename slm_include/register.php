@@ -1,7 +1,7 @@
 <?php
 function slm_register($redirect=1,$redirectpage="login.php") {
 ?>
-<h1>Rejestracja w systemie SLM</h1><br />
+<h1>Registration in SLM system</h1><br />
 <?php
 if($_POST['action'] == "register") {
 	$action = NULL;
@@ -16,15 +16,15 @@ if($_POST['action'] == "register") {
 	flock($f, LOCK_UN);
 	fclose($f);
 	?>
-	<p class="slm_success">Rejestracja zakończona!</p><br />
-	<a class="slm_link" href="<?php echo $redirectpage; ?>" alt="redirect">Kliknij tutaj, jeżeli nie zadziała automatyczne przekierowanie</a><br /><br />
+	<p class="slm_success">Registration completed!</p><br />
+	<a class="slm_link" href="<?php echo $redirectpage; ?>" alt="redirect">Click here if automatic redirection fails</a><br /><br />
 	<script type="text/javascript">
 	window.location.href = "<?php echo $redirectpage; ?>";
 	</script>
 	<?php
 	} else {
 	?>
-	<p class="slm_error">Niezgodne hasła!</p><br />
+	<p class="slm_error">Passwords do not match!</p><br />
 	<?php
 	$action = "second";	
 	}
@@ -32,29 +32,29 @@ if($_POST['action'] == "register") {
 	$action = NULL;
 	if(file_exists("slm_users/".$_POST['username'].".php")) {
 		?>
-		<p class="slm_error">Błąd SLM: Użytkownik już istnieje!</p><br /><br />
+		<p class="slm_error">SLM Error: User already exists!</p><br /><br />
 		<?php
 		$action = "first";
 	} else {
 	?>
-	<p class="slm_text">Teraz wpisz swoje hasło i kliknij &quot;Rejestruj!&quot;</p><br /><br />
+	<p class="slm_text">Now type your password and click on &quot;Register!&quot;</p><br /><br />
 	<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-Nazwa użytkownika: <?php echo $_POST['username']; ?><br />
-Hasło: <input type="password" name="regpass" /><br />
-Potwierdź hasło: <input type="password" name="regpasscheck" /><br />
+Username: <?php echo $_POST['username']; ?><br />
+Password: <input type="password" name="regpass" /><br />
+Type password again: <input type="password" name="regpasscheck" /><br />
 <input type="hidden" name="username" value="<?php echo $_POST['username']; ?>" />
 <input type="hidden" name="action" value="register" />
-<input type="submit" value="Rejestruj!" />
+<input type="submit" value="Register!" />
 </form>
 	<?php	
 	}
 } if($action == "first" OR $_POST['action'] == NULL)  {
 ?>
-<p class="slm_text">Wpisz preferowaną nazwę użytkownika i kliknij &quot;Sprawdź dostępność!&quot;</p><br /><br />
+<p class="slm_text">Type your preffered username and click on &quot;Check availability!&quot;</p><br /><br />
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-Nazwa użytkownika: <input type="text" name="username" /><br />
+Username: <input type="text" name="username" /><br />
 <input type="hidden" name="action" value="checkusername" />
-<input type="submit" value="Sprawdź dostępność!" />
+<input type="submit" value="Check availability!" />
 </form>
 <?php
 }
