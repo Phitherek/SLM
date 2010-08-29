@@ -23,29 +23,29 @@ function slm_passwd() {
 			flock($f, LOCK_UN);
 			fclose($f);
 			?>
-			<p class="slm_success">SLM: Hasło zmienione pomyślnie!</p>
+			<p class="slm_success">SLM: Password changed successfully!</p>
 			<?php
 			} else {
 			$error = 1;	
 			?>
-			<p class="slm_error">Błąd SLM: Hasła się nie zgadzają!</p><br /><br />
+			<p class="slm_error">SLM Error: Passwords do not match!</p><br /><br />
 			<?php
 			}
 		} else {
 		$error = 1;
 		?>
-		<p class="slm_error">Błąd SLM: Złe hasło!</p><br /><br />
+		<p class="slm_error">SLM Error: Bad password!</p><br /><br />
 		<?php
 		}
 		}
 		} else if($error == 1 OR $_POST['change'] == 0) {
 ?>
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
-Stare hasło: <input type="password" name="oldpass" /><br />
-Nowe hasło: <input type="password" name="newpass" /><br />
-Powtórz nowe hasło <input type="password" name="newpasschk" /><br />
+Old password: <input type="password" name="oldpass" /><br />
+New password: <input type="password" name="newpass" /><br />
+Repeat new password: <input type="password" name="newpasschk" /><br />
 <input type="hidden" name="change" value="1" />
-<input type="submit" value="Zmień hasło" />
+<input type="submit" value="Change password" />
 </form>
 <?php	
 		}
