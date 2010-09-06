@@ -11,11 +11,11 @@ include("slm_include/footer.php");
 
 slm_userinfo();
 ?>
-<a href="passwd.php" alt="passwd">Zmiana hasła SLM</a><br />
-<a href="adminonly.php" alt="adminonly">Test AdminOnly</a><br />
-<a href="profile.php" alt="profile">Profile - test dodatkowych informacji w plikach użytkownika i przykład wykorzystania funkcji</a><br />
+<a href="passwd.php" alt="passwd">SLM Password Change</a><br />
+<a href="adminonly.php" alt="adminonly">AdminOnly test</a><br />
+<a href="profile.php" alt="profile">Profile - additional information in user file test and example of using functions for this</a><br />
 <?php
-slm_footer("slm_admin.php","Administracja SLM");
+slm_footer("slm_admin.php","SLM Administration");
 ?>
 </body>
 </html>

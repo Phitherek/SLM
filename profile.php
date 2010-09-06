@@ -22,18 +22,18 @@ if($_GET['action'] == "edit") {
 		$r3=slm_userfile_puts("additional", $_POST['additional']);
 		$r4=slm_userfile_wclose();
 		if($r3 != 0 OR $r4 != 0) {
-			echo("Błąd!");
+			echo("Error!");
 		}
 	} else {
-	echo("Błąd!");	
+	echo("Error!");	
 	}
 	} else {
 	?>
-	<h1>Edycja danych profilu</h1><br /><br />
+	<h1>Profile data edit</h1><br /><br />
 	<form action="<?php echo $_SERVER["PHP_SELF"]; ?>?action=edit" method="post">
-	Dodatkowe informacje: <input type="text" name="additional" /><br />
+	Additional information: <input type="text" name="additional" /><br />
 	<input type="hidden" name="sent" value=1 />
-	<input type="submit" value="Zatwierdź" />
+	<input type="submit" value="Submit" />
 	</form>
 	<?php	
 	}
@@ -42,14 +42,14 @@ $r1=slm_userfile_read($_SESSION['slm_username']);
 if($r1 == 0) {
 ?>
 <h1><?php echo $_SESSION['slm_username']; ?></h1><br />
-Typ konta: <?php echo $_SESSION['slm_userfile_type']; ?><br />
-Dodatkowe info: <?php echo $additional; ?><br /><br />
+Account type: <?php echo $_SESSION['slm_userfile_type']; ?><br />
+Additional information: <?php echo $additional; ?><br /><br />
 <?php
 } else {
-	echo("Nie można odczytać pliku użytkownika!<br /><br />");	
+	echo("Cannot read from user file!<br /><br />");	
 }
 ?>
-<a href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=edit" alt="edit">Edycja danych profilu</a>
+<a href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=edit" alt="edit">Edit profile data</a>
 <?php
 }
 slm_footer();
