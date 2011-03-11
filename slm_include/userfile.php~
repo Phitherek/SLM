@@ -10,11 +10,8 @@ function slm_userfile_read($username) {
 }
 
 function slm_userfile_winit($username) {
-	global $prefixexists;
-	if(!$prefixexists) {
 	include("slm_include/prefixinclude.php");
 prefixinclude("../slm_prefix.php");
-	}
 session_start();
 if (!isset($_SESSION[$prefix.'started'])) {
 	session_regenerate_id();
@@ -37,11 +34,8 @@ return 1;
 }
 
 function slm_userfile_puts($name, $value) {
-	global $prefixexists;
-	if(!$prefixexists) {
 	include("slm_include/prefixinclude.php");
 prefixinclude("../slm_prefix.php");
-	}
 	session_start();
 if (!isset($_SESSION[$prefix.'started'])) {
 	session_regenerate_id();
@@ -57,11 +51,8 @@ global $f;
 }
 
 function slm_userfile_wclose() {
-	global $prefixexists;
-	if(!$prefixexists) {
 	include("slm_include/prefixinclude.php");
 prefixinclude("../slm_prefix.php");
-	}
 	session_start();
 if (!isset($_SESSION[$prefix.'started'])) {
 	session_regenerate_id();

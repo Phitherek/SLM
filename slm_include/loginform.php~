@@ -1,11 +1,8 @@
 <?php
 function slm_loginpage_main($banmode=1,$register=1,$registerpage="register.php",$redirect="index.php")
 {
-	global $prefixexists;
-	if(!$prefixexists) {
 include("slm_include/prefixinclude.php");
 prefixinclude("../slm_prefix.php");
-	}
 session_start();
 if (!isset($_SESSION[$prefix.'started'])) {
 	session_regenerate_id();
@@ -91,11 +88,8 @@ window.location.href = "<?php echo $redirect; ?>";
 }
 function slm_loginpage_sub($banmode=1,$register=1,$registerpage="register.php")
 {
-	global $prefixexists;
-	if(!$prefixexists) {
 	include("slm_include/prefixinclude.php");
 prefixinclude("../slm_prefix.php");
-	}
 session_start();
 if (!isset($_SESSION[$prefix.'started'])) {
 	session_regenerate_id();
