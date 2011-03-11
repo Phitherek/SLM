@@ -6,6 +6,21 @@
 </head>
 <body>
 <?php
+if($_POST['setprefix'] == 1) {
+$prefixfile=fopen("slm_prefix.php","w");
+flock($prefixfile, LOCK_EX);
+fputs($prefixfile, '<?php'."\n");
+fputs($prefixfile, '$prefix="'.$_POST['prefix'].'";'."\n");
+fputs($prefixfile, '?>');
+flock($prefixfile, LOCK_UN);
+fclose($prefixfile);
+if(file_exists("slm_prefix.php")) {
+echo("Prefiks został zapisany pomyślnie!<br />");	
+} else {
+echo("Nie udało się zapisać pliku z prefiksem! Sprawdź uprawnienia katalogu i spróbuj ponownie!<br />");	
+}
+}
+if(file_exists("slm_prefix.php")) {
 if($_POST['step'] == "end") {
 	if($_POST['adminpass'] == $_POST['adminpchk']) {
 $path="slm_users/".$_POST['adminname'].".php";
@@ -56,6 +71,16 @@ Witaj w skrypcie instalacyjnym Phitherek_' s SLM. Zanim rozpoczniesz, upewnij si
 </form>
 <?php
 }
+} else {
+echo("Ze względów bezpieczeństwa wymagane jest podanie prefiksu dla tej instalacji SLM. NIGDY nie instaluj dwóch systemów z tym samym prefiksem! Jeżeli jest to twoja pierwsza i jedyna instalacja SLM, zaleca się pozostawienie domyślnego prefiksu. Prefiks zostanie zapisany nawet, jeżeli instalacja nie zostanie ukończona.<br />");
+?>
+<form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
+<input type="text" name="prefix" value="slm_" /><br />
+<input type="hidden" name="setprefix" value="1" />
+<input type="submit" value="Ustaw prefiks i kontynuuj" />
+</form>
+<?php
+}	
 ?>
 </body>
 </html>
