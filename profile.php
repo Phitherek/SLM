@@ -6,10 +6,15 @@
 </head>
 <body>
 <?php
+global $prefixexists;
+	if(!$prefixexists) {
+	include("slm_include/prefixinclude.php");
+	prefixinclude("slm_prefix.php");
+	}
 session_start();
-if(!isset($_SESSION['started'])) {
+if(!isset($_SESSION[$prefix.'started'])) {
 session_regenerate_id();
-$_SESSION['started'] == 1;
+$_SESSION[$prefix.'started'] == 1;
 }
 include("slm_include/loginform.php");
 include("slm_include/userfile.php");
