@@ -6,6 +6,8 @@
 </head>
 <body>
 <?php
+include("slm_include/prefixinclude.php");
+prefixinclude("slm_prefix.php");
 include("slm_include/loginform.php");
 include("slm_include/adminonly.php");
 include("slm_include/footer.php");
@@ -17,9 +19,9 @@ if(file_exists("slm_install.php")) {
 <?php
 }
 if($_POST['auth'] == 1) {
-	include("slm_users/".$_SESSION['slm_username'].".php");
+	include("slm_users/".$_SESSION[$prefix.'slm_username'].".php");
 	if($_POST['authpass'] == $pass) {
-	$_SESSION['slm_adminpanel'] = 1;	
+	$_SESSION[$prefix.'slm_adminpanel'] = 1;	
 	} else {
 	?>
 	<p class="slm_error">Error: Bad password!</p>
@@ -27,34 +29,34 @@ if($_POST['auth'] == 1) {
 	}
 }
 if($_GET['action'] == "unauth") {
-$_SESSION['slm_modifyuser'] = NULL;
-$_SESSION['slm_adminpanel'] = 0;
+$_SESSION[$prefix.'slm_modifyuser'] = NULL;
+$_SESSION[$prefix.'slm_adminpanel'] = 0;
 }
-if($_SESSION['slm_adminpanel'] == 1) {
+if($_SESSION[$prefix.'slm_adminpanel'] == 1) {
 	if($_GET['action'] == "unmoduser") {
-	$_SESSION['slm_modifyuser'] = NULL;	
+	$_SESSION[$prefix.'slm_modifyuser'] = NULL;	
 	}
 	if($_POST['choice'] == 1) {
 		if(file_exists("slm_users/".$_POST['modusername'].".php")) {
-	$_SESSION['slm_modifyuser'] = $_POST['modusername'];	
+	$_SESSION[$prefix.'slm_modifyuser'] = $_POST['modusername'];	
 		} else {
 		?>
 		<p class="slm_error">Error: User doesn' t exist!</p><br />
 		<?php
 		}
 	}
-	if($_SESSION['slm_modifyuser'] != NULL) {
+	if($_SESSION[$prefix.'slm_modifyuser'] != NULL) {
 		?>
 		<h3 class="slm_header">Actions:</h3><br />
 		<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=change" alt="change">Change user data</a><br />
 		<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=ban" alt="ban">Ban/Unban user</a><br />
 		<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=delete" alt="delete">Delete user</a><hr />
-		<p class="slm_adminpanel_info">Selected user: <?php echo $_SESSION['slm_modifyuser']; ?> (<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=unmoduser" alt="unmoduser">change</a>)(<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=unauth" alt="unauth">exit</a>)</p><hr />
+		<p class="slm_adminpanel_info">Selected user: <?php echo $_SESSION[$prefix.'slm_modifyuser']; ?> (<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=unmoduser" alt="unmoduser">change</a>)(<a class="slm_link" href="<?php echo $_SERVER["PHP_SELF"]; ?>?action=unauth" alt="unauth">exit</a>)</p><hr />
 		<?php
 		if($_GET['action'] == "change") {
 			if($_POST['changed'] == 1) {
 			if($_POST['newpass'] == $_POST['newpasschk']) {
-			$fn="slm_users/".$_SESSION['slm_modifyuser'].".php";
+			$fn="slm_users/".$_SESSION[$prefix.'slm_modifyuser'].".php";
 			unlink($fn);
 			$f = fopen($fn, 'w');
 			flock($f, LOCK_EX);
@@ -74,7 +76,7 @@ if($_SESSION['slm_adminpanel'] == 1) {
 			<?php
 			}
 			} else {
-		include("slm_users/".$_SESSION['slm_modifyuser'].".php");
+		include("slm_users/".$_SESSION[$prefix.'slm_modifyuser'].".php");
 		if($type == "admin") {
 		?>
 		This is account of the administrator. You do not have privileges to change it. The only way to change it is to change data file on the server (the main administrator can do this).
@@ -93,7 +95,7 @@ if($_SESSION['slm_adminpanel'] == 1) {
 		}
 		} else if($_GET['action'] == "ban") {
 			if($_POST['banaction'] == "ban") {
-			$fn="slm_bans/".$_SESSION['slm_modifyuser'].".php";
+			$fn="slm_bans/".$_SESSION[$prefix.'slm_modifyuser'].".php";
 			$f=fopen($fn,'w');
 			flock($f,LOCK_EX);
 			fputs($f,'<?php'."\n");
@@ -105,13 +107,13 @@ if($_SESSION['slm_adminpanel'] == 1) {
 			<p class="slm_success">SLM: Ban added successfully.</p>
 			<?php
 			} else if($_POST['banaction'] == "unban") {
-				unlink("slm_bans/".$_SESSION['slm_modifyuser'].".php");
+				unlink("slm_bans/".$_SESSION[$prefix.'slm_modifyuser'].".php");
 				?>
 			<p class="slm_success">SLM: Ban deleted successfully.</p>
 			<?php
 			} else {
-		if(file_exists("slm_bans/".$_SESSION['slm_modifyuser'].".php")) {
-		include("slm_bans/".$_SESSION['slm_modifyuser'].".php");
+		if(file_exists("slm_bans/".$_SESSION[$prefix.'slm_modifyuser'].".php")) {
+		include("slm_bans/".$_SESSION[$prefix.'slm_modifyuser'].".php");
 		?>
 		<p class="slm_baninfo">This user is banned.<br />
 		<?php
@@ -131,7 +133,7 @@ if($_SESSION['slm_adminpanel'] == 1) {
 		</form>
 		<?php
 		} else {
-		include("slm_users/".$_SESSION['slm_modifyuser'].".php");
+		include("slm_users/".$_SESSION[$prefix.'slm_modifyuser'].".php");
 		if($type == "admin") {
 		?>
 		This is account of the administrator. You do not have privileges to ban it. The only way to ban it is to change data file on the server (the main administrator can do this).
@@ -149,10 +151,10 @@ if($_SESSION['slm_adminpanel'] == 1) {
 		}
 		} else if($_GET['action'] == "delete") {
 			if($_POST['delete'] == 1) {
-			unlink("slm_users/".$_SESSION['slm_modifyuser'].".php");
-			$_SESSION['slm_modifyuser'] = NULL;
+			unlink("slm_users/".$_SESSION[$prefix.'slm_modifyuser'].".php");
+			$_SESSION[$prefix.'slm_modifyuser'] = NULL;
 			} else {
-		include("slm_users/".$_SESSION['slm_modifyuser'].".php");
+		include("slm_users/".$_SESSION[$prefix.'slm_modifyuser'].".php");
 		if($type == "admin") {
 		?>
 		This is account of the administrator. You do not have privileges to delete it. The only way to delete it is to delete data file from the server (the main administrator can do this).

@@ -3,4 +3,8 @@ A login system in PHP
 
 The SLM is ready to use! Enjoy!
 
+<<<<<<< HEAD
 Branch master_en: English version, core files.
+=======
+Branch master: Polish version, core files.
+>>>>>>> master
