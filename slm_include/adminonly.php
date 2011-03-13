@@ -1,5 +1,5 @@
 <?php
-function slm_adminonly($link="index.php",$footerlinkpage="index.php", $footerlinktext="Indeks") {
+function slm_adminonly($link="index.php",$footerlinkpage="index.php", $footerlinktext="Index") {
 	global $prefixexists;
 	if(!$prefixexists) {
 	include("slm_include/prefixinclude.php");

@@ -12,7 +12,7 @@ fclose($prefixfile);
 if(file_exists($prefixflie)) {
 echo("A prefix was saved successfully!<br />");
 } else {
-echo("Could not save the file with prefix. Check directory privileges and try again.<br />");
+echo("Could not save the file with prefix. Check directory privileges and try again!<br />");
 }
 }
 if(file_exists($prefixflie)) {
