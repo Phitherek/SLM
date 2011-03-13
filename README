@@ -3,8 +3,4 @@ A login system in PHP
 
 The SLM is ready to use! Enjoy!
 
-<<<<<<< HEAD
 example: Branch created to show examples of using includes and functions of SLM. Contains additional scripts which create fully functional login system. Polish version, core and example files.
-=======
-Branch master: Polish version, core files.
->>>>>>> master
