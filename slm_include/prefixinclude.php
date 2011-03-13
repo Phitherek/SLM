@@ -22,7 +22,7 @@ $prefixexists = true;
 $prefixexists = false;	
 }
 if($prefixexists == false) {
-echo("Ze względów bezpieczeństwa wymagane jest podanie prefiksu dla tej instalacji SLM. NIGDY nie instaluj dwóch systemów z tym samym prefiksem! Jeżeli jest to twoja pierwsza i jedyna instalacja SLM, zaleca się pozostawienie domyślnego prefiksu. Prefiks zostanie zapisany nawet, jeżeli instalacja nie zostanie ukończona.<br />");
+echo("Ze względów bezpieczeństwa wymagane jest podanie prefiksu dla tej instalacji SLM. NIGDY nie instaluj dwóch systemów z tym samym prefiksem! Jeżeli jest to twoja pierwsza i jedyna instalacja SLM, zaleca się pozostawienie domyślnego prefiksu.<br />");
 ?>
 <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="post">
 <input type="text" name="prefix" value="slm_" /><br />
